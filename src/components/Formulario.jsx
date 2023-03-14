@@ -1,5 +1,6 @@
 import { Button, FormControl, InputLabel, MenuItem, Select } from "@mui/material"
 import { Box } from "@mui/system"
+import useNoticias from "../hooks/useNoticias"
 
 
 const CATEGORIAS = [
@@ -13,34 +14,41 @@ const CATEGORIAS = [
 ]
 
 export const Formulario = () => {
-  return (
-    <form>
-        <FormControl fullWidth>
-            <InputLabel>Categoria</InputLabel>
-            <Select label="Categoria">
-                {CATEGORIAS.map(categoria => (
-                    <MenuItem 
-                        key={categoria.value} 
-                        value={categoria.value}
-                    >
-                        {categoria.label}
-                    </MenuItem>
-                ))}
-            </Select>
-            
-            <Box sx={{
-                marginTop: 2
-            }}>
-                <Button
-                    fullWidth
-                    variant='contained'
-                    color="secondary"
-                >
-                    Buscar Noticias
-                </Button>
-            </Box>
 
-        </FormControl>
-    </form>
-  )
+    const { categoria, handleChangeCategoria } = useNoticias
+
+    return (
+        <form>
+            <FormControl fullWidth>
+                <InputLabel>Categoria</InputLabel>
+                <Select 
+                    label="Categoria"
+                    onChange={handleChangeCategoria}
+                    value={categoria}
+                >
+                    {CATEGORIAS.map(categoria => (
+                        <MenuItem 
+                            key={categoria.value} 
+                            value={categoria.value}
+                        >
+                            {categoria.label}
+                        </MenuItem>
+                    ))}
+                </Select>
+                
+                <Box sx={{
+                    marginTop: 2
+                }}>
+                    <Button
+                        fullWidth
+                        variant='contained'
+                        color="secondary"
+                    >
+                        Buscar Noticias
+                    </Button>
+                </Box>
+
+            </FormControl>
+        </form>
+    )
 }
