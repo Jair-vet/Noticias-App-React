@@ -15,14 +15,14 @@ const CATEGORIAS = [
 
 export const Formulario = () => {
 
-    const { categoria, handleChangeCategoria } = useNoticias
+    const { categoria, handleChangeCategoria } = useNoticias()
 
     return (
         <form>
             <FormControl fullWidth>
                 <InputLabel>Categoria</InputLabel>
-                <Select 
-                    label="Categoria"
+                <Select
+                    label="Categoría"
                     onChange={handleChangeCategoria}
                     value={categoria}
                 >
@@ -42,7 +42,7 @@ export const Formulario = () => {
                     <Button
                         fullWidth
                         variant='contained'
-                        color="secondary"
+                        color='secondary'
                     >
                         Buscar Noticias
                     </Button>

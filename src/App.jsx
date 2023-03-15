@@ -27,6 +27,7 @@ function App() {
         </Grid>
 
       </Container>
+
     </NoticiasProvider>
    </>
   )
