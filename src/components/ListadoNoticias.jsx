@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material"
 import useNoticias from "../hooks/useNoticias"
-import { Noticia } from "./Noticia"
+import Noticia from "./Noticia"
 
 export const ListadoNoticias = () => {
 
@@ -17,7 +17,10 @@ export const ListadoNoticias = () => {
             Últimas Noticias
         </Typography>
 
-        <Grid>
+        <Grid 
+            container
+            spacing={2}
+        >
             {noticias.map(noticia => (
                 <Noticia 
                     key={noticia.url}
