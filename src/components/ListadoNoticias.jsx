@@ -6,7 +6,7 @@ import Noticia from "./Noticia"
 
 export const ListadoNoticias = () => {
 
-    const { noticias, totalNoticias } = useNoticias()
+    const { noticias, totalNoticias, handleChangePagina, pagina } = useNoticias()
     const totalPaginas = Math.ceil(totalNoticias / 20)
 
     
@@ -43,7 +43,9 @@ export const ListadoNoticias = () => {
         >
             <Pagination 
                 count={totalPaginas} 
-                color="secondary" 
+                color="secondary"
+                onChange={handleChangePagina} 
+                page={pagina}
             />
         </Stack>
 
