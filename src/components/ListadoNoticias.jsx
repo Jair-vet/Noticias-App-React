@@ -6,8 +6,10 @@ import Noticia from "./Noticia"
 
 export const ListadoNoticias = () => {
 
-    const { noticias } = useNoticias()
+    const { noticias, totalNoticias } = useNoticias()
+    const totalPaginas = Math.ceil(totalNoticias / 20)
 
+    
   return (
     <>
         <Typography 
@@ -40,7 +42,7 @@ export const ListadoNoticias = () => {
             alignItems='center'
         >
             <Pagination 
-                count={5} 
+                count={totalPaginas} 
                 color="secondary" 
             />
         </Stack>

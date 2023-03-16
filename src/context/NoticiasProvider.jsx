@@ -12,8 +12,7 @@ const NoticiasProvider = ({children}) => {
 
     useEffect(() => {
       const consultarAPI = async () => {
-        const url = `https://newsapi.org/v2/top-headlines?country=us&category=${categoria}&pageSize=
-            100&apiKey=${import.meta.env.VITE_API_KEY}`
+        const url = `https://newsapi.org/v2/top-headlines?country=us&category=${categoria}&apiKey=${import.meta.env.VITE_API_KEY}`
         
         const { data } = await axios(url)
         setNoticias(data.articles);
@@ -33,7 +32,8 @@ const NoticiasProvider = ({children}) => {
             value={{
                 categoria,
                 handleChangeCategoria,
-                noticias
+                noticias,
+                totalNoticias
             }}
         >
             {children}
